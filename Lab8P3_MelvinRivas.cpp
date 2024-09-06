@@ -1,19 +1,83 @@
-// Lab8P3_MelvinRivas.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
 #include <iostream>
+using namespace std;
+#include <string>
+#include <vector>
+
+void ejercicio1() {
+	int opciones = 1;
+	while (opciones != 0)
+	{
+		cout << "---- Menu de Figuras ----" << endl << "1. Crear un circulo" <<
+			endl << "2. Crear un rectangulo" << endl << "3. Crear un triangulo" <<
+			endl << "4. Mostrar la figuras mas reciente" << endl <<
+			"5. Listar todas las figuras creadas" << endl << "0. Salir";
+		cin >> opciones;
+		cout << endl;
+		switch (opciones)
+		{
+		case 0: {
+			cout << "Saliendo del ejericio 1" << endl;
+			break;
+		}
+		case 1: {
+
+			break;
+		}
+		case 2: {
+
+			break;
+		}
+		case 3: {
+
+			break;
+		}
+		case 4: {
+
+			break;
+		}
+		case 5: {
+
+			break;
+		}
+		default:
+			cout << "Error de caracter, porfavor vuelva a intentarlo" << endl;
+			break;
+		}
+	}
+
+}
+
+void menu() {
+	int opciones = 1;
+	while (opciones != 0)
+	{
+		cout << "---- MENU ----" << endl << "1. Figuras" << endl
+			<< "2. Operaciones con conjunto" << endl <<
+			"0. Salir" << endl << "Cual desea elegir: ";
+		cin >> opciones;
+		cout << endl;
+		switch (opciones)
+		{
+		case 0: {
+			cout << "Saliendo...." << endl;
+			break;
+		}
+		case 1: {
+			ejercicio1();
+			break;
+		}
+		case 2: {
+
+			break;
+		}
+		default:
+			cout << "Error de caracter, porfavor vuelva a intentarlo" << endl;
+			break;
+		}
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	menu();
 }
-
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
