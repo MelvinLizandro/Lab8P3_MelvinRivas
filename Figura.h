@@ -8,7 +8,7 @@ protected:
 	string color;
 public:
 	Figura(string);
-	virtual double area() = 0;
+	virtual double area() const = 0;
 	friend ostream& operator<<(ostream&, const Figura&);
 };
 

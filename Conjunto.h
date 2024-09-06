@@ -5,10 +5,18 @@ using namespace std;
 #include <vector>
 class Conjunto
 {
+private:
+	vector <Conjunto> conjunto1;
+	vector <Conjunto> conjunto2;
+	vector <Conjunto> conjunto3;
+	int num;
 public:
-	vector <int> conjunto1;
-	vector <int> conjunto2;
+	Conjunto(int);
 	void agregar_elemento(int);
 	void mostrar();
+	void copiar_vectores(vector <Conjunto> con1, vector <Conjunto> con2);
+	Conjunto& operator+(const Conjunto&) const;
+	Conjunto& operator*(const Conjunto&) const;
+	Conjunto& operator-(const Conjunto&) const;
 };
 

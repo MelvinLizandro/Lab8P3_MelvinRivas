@@ -8,13 +8,16 @@ using namespace std;
 #include "Rectangulo.h"
 #include "Conjunto.h"
 
+vector <Conjunto*> conjunto1;
+vector <Conjunto*> conjunto2;
 vector <Figura*> figu;
 Circulo* cir;
 Rectangulo* rec;
 Triangulo* tri;
-Conjunto conju;
 
 void Crear_circulo() {
+	//le da valor a todas las variables para poder agregarlo
+	//al vector
 	string color;
 	double radio;
 	cout << "Ingrese el color del circulo: " << endl; 
@@ -26,6 +29,8 @@ void Crear_circulo() {
 }
 
 void Crear_rectangulo() {
+	//le da valor a todas las variables para poder agregarlo
+	//al vector
 	string color;
 	double base,altura;
 	cout << "Ingrese el color del rectangulo: " << endl;
@@ -39,6 +44,8 @@ void Crear_rectangulo() {
 }
 
 void Crear_Triangulo() {
+	//le da valor a todas las variables para poder agregarlo
+	//al vector
 	string color;
 	double base, altura;
 	cout << "Ingrese el color del rectangulo: " << endl;
@@ -81,15 +88,35 @@ void ejercicio1() {
 			break;
 		}
 		case 4: {
-			Figura* figuras = figu[(figu.size() - 1)];
-			cout << figuras << endl;
+			//valida que haya algo que se pueda imprimir
+			if (figu.empty())
+			{
+				cout << "No hay nada que imprimir" << endl;
+			}
+			else
+			{
+				// imprime el ultimo valor del vector
+				cout << "---- Figura mas reciente creada ----" << endl;
+				Figura* figuras = figu[(figu.size() - 1)];
+				cout << *figuras << endl;
+			}
 			break;
 		}
 		case 5: {
-			for (size_t i = 0; i < figu.size(); i++)
+			//valida que haya algo que se pueda imprimir
+			if (figu.empty())
 			{
-				Figura* figuras =  figu[i];
-				cout << figuras << endl;
+				cout << "No hay nada que imprimir" << endl;
+			}
+			else
+			{
+				//lista todos los valores existentes
+				cout << "---- Listas de figuras creadas ----" << endl;
+				for (size_t i = 0; i < figu.size(); i++)
+				{
+					Figura* figuras = figu[i];
+					cout << i + 1 << ". " << *figuras << endl;
+				}
 			}
 			break;
 		}
@@ -100,6 +127,60 @@ void ejercicio1() {
 	}
 }
 
+void agregar_elemento1() {
+	//agrega el del conjunto 1
+		int usuario;
+		cout << "Ingrese elemento para agregar al conjunto 1: ";
+		cin >> usuario;
+		Conjunto* conju = new Conjunto(usuario);
+		conjunto1.push_back(conju);
+}
+
+void agregar_elemento2() {
+	//agrego los del conjunto 2
+		int usuario;
+		cout << "Ingrese elemento para agregar al conjunto 1: ";
+		cin >> usuario;
+		Conjunto* conju = new Conjunto(usuario);
+		conjunto2.push_back(conju);
+}
+
+void imprimir() {
+	// verifica que cada uno de los vectores tenga algo que imprimir y
+	// si no tira la advertencia
+	if (conjunto1.empty())
+	{
+		cout << "No hay nada que listar" << endl;
+	}
+	else
+	{
+		cout << "Conjunto 1 { ";
+		for (size_t i = 0; i < conjunto1.size(); i++)
+		{
+			conjunto1[i]->mostrar();
+			cout << " ";
+		}
+		cout << "}" << endl;
+	}
+
+	if (conjunto2.empty())
+	{
+	}
+	else
+	{
+		cout << "Conjunto 2 { ";
+		for (size_t i = 0; i < conjunto2.size(); i++)
+		{
+			conjunto2[i]->mostrar();
+			cout << " ";
+		}
+		cout << "}" << endl;
+	}
+}
+
+void union_conjuntos() {
+
+}
 
 
 void ejercicio2() {
@@ -123,19 +204,19 @@ void ejercicio2() {
 			break;
 		}
 		case 1: {
-			conju.agregar_elemento(1);
+			agregar_elemento1();
 			break;
 		}
 		case 2: {
-			conju.agregar_elemento(2);
+			agregar_elemento2();
 			break;
 		}
 		case 3: {
-			conju.mostrar();
+			imprimir();
 			break;
 		}
 		case 4: {
-
+			union_conjuntos();
 			break;
 		}
 		case 5: {
@@ -166,7 +247,22 @@ void menu() {
 		{
 		case 0: {
 			cout << "Saliendo...." << endl;
+			for (int i = 0; i < figu.size(); i++) {
+				delete figu[i];
+			}
+			figu.clear();
+
+			for (int i = 0; i < conjunto1.size(); i++) {
+				delete conjunto1[i];
+			}
+			conjunto1.clear();
+
+			for (int i = 0; i < conjunto2.size(); i++) {
+				delete conjunto2[i];
+			}
+			conjunto2.clear();
 			break;
+			//extra
 		}
 		case 1: {
 			ejercicio1();

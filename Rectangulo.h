@@ -10,8 +10,7 @@ private:
 	double base;
 public:
 	Rectangulo(string,double,double);
-	double area() override;
-	
-	friend ostream& operator<<(ostream&, const Rectangulo&);
+	double area() const override ;
+
 };
 

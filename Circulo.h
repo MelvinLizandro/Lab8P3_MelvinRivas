@@ -9,7 +9,7 @@ private:
 	double radio;
 public: 
 	Circulo(string,double);
-	virtual double area() override;
-	friend ostream& operator<<(ostream&, const Circulo&);
+	virtual double area() const override;
+
 };
 

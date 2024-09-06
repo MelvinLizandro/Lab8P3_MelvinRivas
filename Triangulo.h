@@ -10,7 +10,6 @@ private:
 	double base;
 public:
 	Triangulo(string,double,double);
-	virtual double area() override;
-	friend ostream& operator<<(ostream&, const Triangulo&);
+	virtual double area() const override;
 };
 

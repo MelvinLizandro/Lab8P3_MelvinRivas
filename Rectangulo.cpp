@@ -5,13 +5,6 @@ Rectangulo::Rectangulo(string color, double base_, double altura_) : Figura(colo
 	altura = altura_;
 }
 
-double Rectangulo::area() {
+double Rectangulo::area() const {
 	return (base * altura);
 }
-
-ostream& operator<<(ostream& ostream, const Rectangulo& rectangulo) {
-	double resultado = (rectangulo.base * rectangulo.altura);
-	ostream << "Color del rectangulo: " << rectangulo.color << endl 
-		<< "Area del rectangulo: " << resultado << endl;
-	return ostream;
- }
